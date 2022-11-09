@@ -6,7 +6,7 @@ const { Octokit } = require("@octokit/core")
 
 require('dotenv-flow').config()
 
-app.get('/', async (req, res) => {
+app.get('/names', async (req, res) => {
   // Octokit.js
   // https://github.com/octokit/core.js#readme
   const octokit = new Octokit({
