@@ -6,6 +6,13 @@ const { Octokit } = require("@octokit/core")
 
 require('dotenv-flow').config()
 
+// use the express-static middleware
+// app.use(express.static("public"))
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
 app.get('/names', async (req, res) => {
   // Octokit.js
   // https://github.com/octokit/core.js#readme
@@ -18,13 +25,6 @@ app.get('/names', async (req, res) => {
     repo: "next.js",
     path: "examples",
   });
-
-  // console.log("done>> ", data);
-
-  // const fitredTemplatesName = data.forEach(function (arrayData) {
-  //   console.log(arrayData.name);
-  //   return arrayData.name;
-  // });
 
   let result = data.map(a => a.name);
 
